@@ -13,14 +13,15 @@ export default function Navigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName={() => "Welcome"}
         screenOptions={{
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Registration" component={RegistrationPage} />
-        <Stack.Screen name="SecondPage" component={SecondPage} />
-        <Stack.Screen name="SignIn" component={SignInPage} />
         <Stack.Screen name="Welcome" component={WelcomePage} />
+        <Stack.Screen name="SecondPage" component={SecondPage} />
+        <Stack.Screen name="Registration" component={RegistrationPage} />
+        <Stack.Screen name="SignIn" component={SignInPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
