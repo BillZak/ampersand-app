@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function WelcomePage() {
+export default function WelcomePage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.imageview}>
@@ -17,7 +17,7 @@ export default function WelcomePage() {
         <Text style={{ fontSize: 20, letterSpacing: 5 }}>CONTACTS</Text>
       </View>
       <View style={styles.thirdview}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("SecondPage")}>
           <Text
             style={{
               fontSize: 15,
