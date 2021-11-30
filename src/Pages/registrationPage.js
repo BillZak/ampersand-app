@@ -9,16 +9,16 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function RegistrationPage() {
+export default function RegistrationPage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.firstview}>
-        <MaterialIcons
+        <TouchableOpacity
           style={{ position: "absolute", left: 20 }}
-          name="keyboard-backspace"
-          size={30}
-          color="white"
-        />
+          onPress={() => navigation.goBack()}
+        >
+          <MaterialIcons name="keyboard-backspace" size={30} color="white" />
+        </TouchableOpacity>
         <Text style={{ color: "#fff", fontSize: 20, letterSpacing: 2 }}>
           Register
         </Text>
@@ -27,7 +27,7 @@ export default function RegistrationPage() {
       <View style={styles.secondview}>
         <Image
           style={{ height: "100%", width: "100%" }}
-          source={require("./assets/1041797.jpg")}
+          source={require("../../assets/1041797.jpg")}
         />
       </View>
       <View style={styles.thirdview}>
