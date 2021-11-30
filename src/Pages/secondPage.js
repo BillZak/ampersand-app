@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function SecondPage() {
+export default function SecondPage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.imageview}>
@@ -19,7 +19,10 @@ export default function SecondPage() {
         </Text>
       </View>
       <View style={styles.thirdview}>
-        <TouchableOpacity style={{ flex: 1, alignItems: "center" }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Registration")}
+          style={{ flex: 1, alignItems: "center" }}
+        >
           <Text
             style={{
               fontSize: 15,
@@ -30,7 +33,10 @@ export default function SecondPage() {
             REGISTER
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{ flex: 1, alignItems: "center" }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("SignIn")}
+          style={{ flex: 1, alignItems: "center" }}
+        >
           <Text
             style={{
               fontSize: 15,
