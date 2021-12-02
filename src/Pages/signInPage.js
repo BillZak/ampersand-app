@@ -36,7 +36,7 @@ export default function SignInPage({ navigation }) {
         <TextInput style={styles.input} placeholder="Password" />
       </View>
       <View style={styles.fourthview}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Scan")}>
           <Text
             style={{
               color: "#fff",
