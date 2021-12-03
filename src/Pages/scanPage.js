@@ -1,7 +1,8 @@
 //import liraries
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { QRCode } from "react-native-custom-qr-codes-expo";
 
 // create a component
 const ScanPage = ({ navigation }) => {
@@ -29,7 +30,9 @@ const ScanPage = ({ navigation }) => {
           Scan this QR below to share your contacts
         </Text>
       </View>
-      <View style={styles.thirdview}></View>
+      <View style={styles.thirdview}>
+        <QRCode logo={require("../../assets/npic.jpg")} />
+      </View>
       <View style={styles.fourthview}>
         <Image
           style={{
@@ -49,7 +52,7 @@ const ScanPage = ({ navigation }) => {
         <Text style={{ fontSize: 13, marginRight: 20 }}>
           Want to add a new connection?
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Scanner")}>
           <Text
             style={{
               color: "brown",
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
   },
   thirdview: {
     flex: 3,
+    alignItems: "center",
     width: "100%",
   },
   fourthview: {
