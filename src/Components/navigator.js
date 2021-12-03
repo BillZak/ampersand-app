@@ -9,6 +9,7 @@ import WelcomePage from "../Pages/WelcomePage";
 import MyProfile from "../Pages/myProfilePage";
 import MemberProfile from "../Pages/memberProfile";
 import ScanPage from "../Pages/scanPage";
+import Scanner from "../Pages/Scanner";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ export default function Navigator() {
         <Stack.Screen name="MyProfile" component={MyProfile} />
         <Stack.Screen name="MemberProfile" component={MemberProfile} />
         <Stack.Screen name="Scan" component={ScanPage} />
+        <Stack.Screen name="Scanner" component={Scanner} />
       </Stack.Navigator>
     </NavigationContainer>
   );
