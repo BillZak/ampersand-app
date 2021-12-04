@@ -26,7 +26,7 @@ const MyProfile = ({ navigation }) => {
           name="keyboard-backspace"
         />
         <Text style={{ color: "white", fontSize: 20, letterSpacing: 2 }}>
-          Member Profile
+          My Profile
         </Text>
       </View>
       <View style={styles.secondview}>
