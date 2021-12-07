@@ -1,52 +1,32 @@
 //import liraries
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 // create a component
 const Scanner = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [text, setText] = useState("Not Yet SCanned");
 
-  const askForCameraPermission = () => {
+  useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status == "granted");
+      setHasPermission(status === "granted");
     })();
-  };
-
-  // Request camera permision
-  useEffect(() => {
-    askForCameraPermission();
   }, []);
 
-  //when barcode is scanned
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    setText(data);
-    console.log("type: " + type + "data:" + data);
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
-  //check permision and return the screen
   if (hasPermission === null) {
-    return (
-      <View>
-        <Text>Requesting for camera</Text>
-      </View>
-    );
+    return <Text>Requesting for camera permission</Text>;
   }
-
   if (hasPermission === false) {
-    return (
-      <View>
-        <Text>No access to camera</Text>
-        <Button
-          title={"Allow Camera"}
-          onPress={() => askForCameraPermission()}
-        />
-      </View>
-    );
+    return <Text>No access to camera</Text>;
   }
 
   return (
@@ -54,9 +34,14 @@ const Scanner = () => {
       <View style={styles.scanner}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={{ height: 700, width: 400 }}
+          style={StyleSheet.absoluteFillObject}
         />
-        <Text>{text}</Text>
+        {scanned && (
+          <Button
+            title={"Tap to Scan Again"}
+            onPress={() => setScanned(false)}
+          />
+        )}
       </View>
       <View style={styles.bottomview}>
         <Text style={{ fontSize: 13, marginRight: 40 }}>
@@ -90,14 +75,6 @@ const styles = StyleSheet.create({
   },
   scanner: {
     flex: 4,
-
-    alignItems: "center",
-    justifyContent: "center",
-    marginVertical: 200,
-    height: 300,
-    width: 300,
-    overflow: "hidden",
-    borderRadius: 30,
   },
   bottomview: {
     flex: 1,
@@ -113,3 +90,6 @@ const styles = StyleSheet.create({
 
 //make this component available to the app
 export default Scanner;
+
+//navigation function
+//() => NavigationContainer.navigate("MemberProfile")
