@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function SignInPage({ navigation }) {
   return (
@@ -29,12 +30,14 @@ export default function SignInPage({ navigation }) {
           source={require("../../assets/unsplash2.jpg")}
         />
       </View>
+
       <View style={styles.thirdview}>
         <Text style={styles.inputlabel}>Email</Text>
         <TextInput style={styles.input} placeholder="example@email.com" />
         <Text style={styles.inputlabel}>Password</Text>
         <TextInput style={styles.input} placeholder="Password" />
       </View>
+
       <View style={styles.fourthview}>
         <TouchableOpacity onPress={() => navigation.navigate("Scan")}>
           <Text
