@@ -31,7 +31,18 @@ const ScanPage = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.thirdview}>
-        <QRCode logo={require("../../assets/npic.jpg")} />
+        <QRCode
+          content={JSON.stringify([
+            {
+              name: "Bilal Zakari",
+              role: "Software Engineering",
+              phone: "+233 209688728",
+              email: "bzak954@gmail.com",
+              location: "kasoa",
+            },
+          ])}
+          logo={require("../../assets/npic.jpg")}
+        />
       </View>
       <View style={styles.fourthview}>
         <Image
